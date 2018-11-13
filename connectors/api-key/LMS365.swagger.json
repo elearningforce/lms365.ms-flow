@@ -250,9 +250,23 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "Specify the enrollment id",
-            "x-ms-summary": "Enrollment Id"
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "Specify the cancellation message",
+                  "title": "Cancellation Message",
+                  "x-ms-visibility": ""
+                }
+              }
+            }
           }
         ]
       }
