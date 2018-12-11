@@ -250,7 +250,9 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Specify the enrollment id",
+            "x-ms-summary": "Enrollment Id"
           },
           {
             "name": "body",
