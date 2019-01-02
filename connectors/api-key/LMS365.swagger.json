@@ -2890,7 +2890,6 @@
         ]
       }
     },
-    "/odata/v2/Courses(027707f9-98d5-4ddf-b98f-0a99a220c1ef)": {},
     "/odata/v2/Enrollments({EnrollmentId})": {
       "get": {
         "responses": {
@@ -3451,6 +3450,78 @@
           }
         },
         "x-ms-visibility": "important"
+      }
+    },
+    "/{fileDownloadUrl}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string",
+              "description": "File Content",
+              "title": "File Content",
+              "format": "binary",
+              "x-ms-visibility": ""
+            }
+          }
+        },
+        "summary": "Download a File",
+        "description": "Download a File",
+        "operationId": "FileDownload",
+        "parameters": [
+          {
+            "name": "fileDownloadUrl",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/{fileUploadUrl}": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Upload a File",
+        "description": "Upload a File",
+        "operationId": "FileUpload",
+        "parameters": [
+          {
+            "name": "fileUploadUrl",
+            "description": "example: images/upload",
+            "x-ms-summary": "Path to file upload handler",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "File",
+            "in": "formData",
+            "description": "File to upload",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "Content-Type",
+            "in": "formData",
+            "description": "Content-Type of uploaded file",
+            "required": false,
+            "type": "string"
+          }
+        ]
       }
     }
   },
