@@ -3,7 +3,7 @@
   "info": {
     "title": "LMS365 - Dev",
     "description": "LMS365 provides a modern, cloud based and secure learning management system, fit for the Modern Digital Workplace. It eliminates complexity by providing a complete learning solution that integrates seamlessly into your existing Office 365 and SharePoint environments. LMS365 is easy accessible from your browser, our intuitive mobile app or from Microsoft Teams enabling all companies to deliver training in any context, anytime, anywhere.",
-    "version": "1.1",
+    "version": "1.2",
     "x-ms-api-annotation": {
       "status": "Preview"
     }
@@ -3452,34 +3452,36 @@
         "x-ms-visibility": "important"
       }
     },
-    "/{fileDownloadUrl}": {
+    "/{FileDownloadUrl}": {
       "get": {
         "responses": {
           "default": {
             "description": "default",
             "schema": {
               "type": "string",
-              "description": "File Content",
+              "description": "The content of the file",
               "title": "File Content",
               "format": "binary",
               "x-ms-visibility": ""
             }
           }
         },
-        "summary": "Download a File",
-        "description": "Download a File",
+        "summary": "Get File Content",
+        "description": "Get the content of the file e.g. certificate pdf",
         "operationId": "FileDownload",
         "parameters": [
           {
-            "name": "fileDownloadUrl",
+            "name": "FileDownloadUrl",
             "in": "path",
             "required": true,
             "type": "string"
+            "description": "Relative path to the GET operator. Example: Certificates(027707f9-98d5-5ddf-b98f-0a99a220c1ef)/Content()",
+            "x-ms-summary": "GET file Operator Path"
           }
         ]
       }
     },
-    "/{fileUploadUrl}": {
+    "/{FileUploadUrl}": {
       "post": {
         "consumes": [
           "multipart/form-data"
@@ -3495,29 +3497,31 @@
             }
           }
         },
-        "summary": "Upload a File",
-        "description": "Upload a File",
+        "summary": "Upload File",
+        "description": "Uploads and create a file in LMS365 cloud storage.",
         "operationId": "FileUpload",
         "parameters": [
           {
-            "name": "fileUploadUrl",
-            "description": "example: images/upload",
-            "x-ms-summary": "Path to file upload handler",
+            "name": "FileUploadUrl",
             "in": "path",
             "required": true,
             "type": "string"
+            "description": "Relative path to the GET operator. Example: certificates/upload",
+            "x-ms-summary": "POST file Operator Path",            
           },
           {
             "name": "File",
             "in": "formData",
-            "description": "File to upload",
+            "description": "Content of the file.",
+            "x-ms-summary": "File Content",            
             "required": true,
             "type": "file"
           },
           {
             "name": "Content-Type",
             "in": "formData",
-            "description": "Content-Type of uploaded file",
+            "description": "Specify the content-type of the file. Example: application/pdf",
+            "x-ms-summary": "Content Type",            
             "required": false,
             "type": "string"
           }
