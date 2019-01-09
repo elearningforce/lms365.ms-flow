@@ -3474,9 +3474,9 @@
             "name": "FileDownloadUrl",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
             "description": "Relative path to the GET operator. Example: Certificates(027707f9-98d5-5ddf-b98f-0a99a220c1ef)/Content()",
-            "x-ms-summary": "GET file Operator Path"
+            "x-ms-summary": "Uri"
           }
         ]
       }
@@ -3505,15 +3505,15 @@
             "name": "FileUploadUrl",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
             "description": "Relative path to the GET operator. Example: certificates/upload",
-            "x-ms-summary": "POST file Operator Path",            
+            "x-ms-summary": "Uri"
           },
           {
             "name": "File",
             "in": "formData",
             "description": "Content of the file.",
-            "x-ms-summary": "File Content",            
+            "x-ms-summary": "File Content",
             "required": true,
             "type": "file"
           },
@@ -3521,7 +3521,7 @@
             "name": "Content-Type",
             "in": "formData",
             "description": "Specify the content-type of the file. Example: application/pdf",
-            "x-ms-summary": "Content Type",            
+            "x-ms-summary": "Content Type",
             "required": false,
             "type": "string"
           }
