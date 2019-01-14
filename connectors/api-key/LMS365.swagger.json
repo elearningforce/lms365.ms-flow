@@ -3506,7 +3506,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Relative path to the GET operator. Example: certificates/upload",
+            "description": "Relative path to the POST operator. Example: certificates/027707f9-98d5-5ddf-b98f-0a99a220c1ef/upload",
             "x-ms-summary": "Uri"
           },
           {
