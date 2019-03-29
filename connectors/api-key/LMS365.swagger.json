@@ -3527,6 +3527,334 @@
           }
         ]
       }
+    },
+    "/webhooks/subscribe/UserCreated": {
+      "x-ms-notification-content": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "Id": {
+              "type": "string",
+              "description": "Id"
+            },
+            "Attempt": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Attempt"
+            },
+            "Properties": {
+              "type": "object",
+              "properties": {},
+              "description": "Properties"
+            },
+            "Notifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Action": {
+                    "type": "string",
+                    "description": "Action"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "description": "UserId"
+                  },
+                  "LoginName": {
+                    "type": "string",
+                    "description": "LoginName"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "description": "Email"
+                  },
+                  "Title": {
+                    "type": "string",
+                    "description": "Title"
+                  },
+                  "DirectoryObjectId": {
+                    "type": "string",
+                    "description": "DirectoryObjectId"
+                  },
+                  "IsDeleted": {
+                    "type": "boolean",
+                    "description": "IsDeleted"
+                  },
+                  "UserFieldValues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "FieldId": {
+                          "type": "string",
+                          "description": "FieldId"
+                        },
+                        "FieldTitle": {
+                          "type": "string",
+                          "description": "FieldTitle"
+                        },
+                        "Value": {
+                          "type": "string",
+                          "description": "Value"
+                        }
+                      }
+                    },
+                    "description": "UserFieldValues"
+                  },
+                  "TimeStamp": {
+                    "type": "string",
+                    "description": "TimeStamp"
+                  }
+                }
+              },
+              "description": "Notifications"
+            }
+          }
+        },
+        "description": "Response"
+      },
+      "post": {
+        "responses": {},
+        "summary": "When user record has been created in the LMS365",
+        "description": "When user record has been created in the LMS365",
+        "operationId": "UserCreated",
+        "x-ms-trigger": "single",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "WebHookUri": {
+                  "type": "string",
+                  "description": "Webhook Uri",
+                  "title": "Webhook Uri",
+                  "x-ms-visibility": "internal",
+                  "x-ms-notification-url": true
+                }
+              },
+              "required": [
+                "WebHookUri"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/webhooks/subscribe/UserDeleted": {
+      "x-ms-notification-content": {
+        "description": "Response",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "Id": {
+              "type": "string",
+              "description": "Id"
+            },
+            "Attempt": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Attempt"
+            },
+            "Properties": {
+              "type": "object",
+              "properties": {},
+              "description": "Properties"
+            },
+            "Notifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Action": {
+                    "type": "string",
+                    "description": "Action"
+                  },
+                  "UserId": {
+                    "type": "string",
+                    "description": "UserId"
+                  },
+                  "LoginName": {
+                    "type": "string",
+                    "description": "LoginName"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "description": "Email"
+                  },
+                  "Title": {
+                    "type": "string",
+                    "description": "Title"
+                  },
+                  "DirectoryObjectId": {
+                    "type": "string",
+                    "description": "DirectoryObjectId"
+                  },
+                  "IsDeleted": {
+                    "type": "boolean",
+                    "description": "IsDeleted"
+                  },
+                  "UserFieldValues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "FieldId": {
+                          "type": "string",
+                          "description": "FieldId"
+                        },
+                        "FieldTitle": {
+                          "type": "string",
+                          "description": "FieldTitle"
+                        },
+                        "Value": {
+                          "type": "string",
+                          "description": "Value"
+                        }
+                      }
+                    },
+                    "description": "UserFieldValues"
+                  },
+                  "TimeStamp": {
+                    "type": "string",
+                    "description": "TimeStamp"
+                  }
+                }
+              },
+              "description": "Notifications"
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {},
+        "summary": "When user record has been deleted in the LMS365",
+        "description": "When user record has been deleted in the LMS365",
+        "operationId": "UserDeleted",
+        "x-ms-trigger": "single",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "WebHookUri": {
+                  "type": "string",
+                  "description": "WebHook Uri",
+                  "title": "WebHook Uri",
+                  "x-ms-visibility": "internal",
+                  "x-ms-notification-url": true
+                }
+              },
+              "required": [
+                "WebHookUri"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/webhooks/subscribe/CourseDeleted": {
+      "x-ms-notification-content": {
+        "description": "Response",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "Id": {
+              "type": "string",
+              "description": "Id"
+            },
+            "Attempt": {
+              "type": "integer",
+              "format": "int32",
+              "description": "Attempt"
+            },
+            "Properties": {
+              "type": "object",
+              "properties": {},
+              "description": "Properties"
+            },
+            "Notifications": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Action": {
+                    "type": "string",
+                    "description": "Action"
+                  },
+                  "SiteId": {
+                    "type": "string",
+                    "description": "SiteId"
+                  },
+                  "WebId": {
+                    "type": "string",
+                    "description": "WebId"
+                  },
+                  "Id": {
+                    "type": "string",
+                    "description": "Id"
+                  },
+                  "Title": {
+                    "type": "string",
+                    "description": "Title"
+                  },
+                  "Url": {
+                    "type": "string",
+                    "description": "Url"
+                  },
+                  "CourseType": {
+                    "type": "string",
+                    "description": "CourseType"
+                  },
+                  "Published": {
+                    "type": "boolean",
+                    "description": "Published"
+                  },
+                  "TimeStamp": {
+                    "type": "string",
+                    "description": "TimeStamp"
+                  }
+                }
+              },
+              "description": "Notifications"
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {},
+        "summary": "When training has been deleted",
+        "operationId": "CourseDeleted",
+        "x-ms-trigger": "single",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "WebHookUri": {
+                  "type": "string",
+                  "description": "Webhook Uri",
+                  "title": "Webhook Uri",
+                  "x-ms-visibility": "internal",
+                  "x-ms-notification-url": true
+                }
+              },
+              "required": [
+                "WebHookUri"
+              ]
+            }
+          }
+        ],
+        "description": "When training has been deleted"
+      }
     }
   },
   "definitions": {
