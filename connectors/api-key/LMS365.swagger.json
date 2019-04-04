@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "LMS365 - Dev",
+    "title": "LMS365",
     "description": "LMS365 provides a modern, cloud based and secure learning management system, fit for the Modern Digital Workplace. It eliminates complexity by providing a complete learning solution that integrates seamlessly into your existing Office 365 and SharePoint environments. LMS365 is easy accessible from your browser, our intuitive mobile app or from Microsoft Teams enabling all companies to deliver training in any context, anytime, anywhere.",
     "version": "1.2",
     "x-ms-api-annotation": {
-      "status": "Preview"
+      "status": "Production"
     }
   },
   "host": "api.365.systems",
@@ -21,9 +21,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "summary": "Approve enrollment request",
@@ -115,8 +113,8 @@
                       },
                       "CourseType": {
                         "type": "string",
-                        "description": "Coursetype",
-                        "x-ms-summary": "Coursetype"
+                        "description": "Specify the course type.",
+                        "x-ms-summary": "Course Type"
                       },
                       "Published": {
                         "type": "boolean",
@@ -187,9 +185,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "summary": "Enroll user to training",
@@ -237,9 +233,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "summary": "Reject enrollment request",
@@ -452,7 +446,7 @@
     "/odata/v2/CourseCategories": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -511,7 +505,7 @@
       },
       "post": {
         "responses": {
-          "default": {
+          "201": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -576,7 +570,7 @@
     "/odata/v2/Courses": {
       "post": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -607,7 +601,8 @@
                   "x-ms-summary": "Course Long Description"
                 },
                 "CEU": {
-                  "type": "string",
+                  "type": "integer",
+                  "format": "int32",
                   "description": "Continuing education units (CEU)",
                   "x-ms-summary": "Continuing Education Units"
                 },
@@ -648,8 +643,8 @@
                 },
                 "ImageUrl": {
                   "type": "string",
-                  "description": "Course image url",
-                  "x-ms-summary": "ImageUrl"
+                  "description": "Specify the course catalog and site image url.",
+                  "x-ms-summary": "Image Url"
                 },
                 "CertificateTemplateId": {
                   "type": "string",
@@ -711,7 +706,6 @@
                 },
                 "CourseType": {
                   "type": "string",
-                  "format": "int32",
                   "description": "Coursetype",
                   "x-ms-summary": "Coursetype",
                   "x-ms-visibility": "important",
@@ -765,13 +759,7 @@
                       "IsNew": {
                         "type": "boolean",
                         "description": "Is the category new?",
-                        "x-ms-summary": "Is New",
-                        "x-ms-visibility": "",
-                        "enum": [
-                          "",
-                          "true",
-                          "false"
-                        ]
+                        "x-ms-summary": "Is New"
                       },
                       "ParentCategoryId": {
                         "type": "string",
@@ -810,7 +798,6 @@
                 },
                 "EnrollmentFlow": {
                   "type": "string",
-                  "format": "int32",
                   "description": "Enrollment flow",
                   "x-ms-summary": "Enrollment Flow",
                   "x-ms-visibility": "",
@@ -825,8 +812,7 @@
                 "Url": {
                   "type": "string",
                   "description": "Specify the course url",
-                  "x-ms-summary": "Url",
-                  "x-ms-visibility": ""
+                  "x-ms-summary": "Url"
                 },
                 "SiteTemplate": {
                   "type": "string",
@@ -853,12 +839,7 @@
                   "type": "boolean",
                   "description": "Auto resolve url conflict",
                   "x-ms-summary": "Auto Resolve Url Conflict",
-                  "x-ms-visibility": "advanced",
-                  "enum": [
-                    "",
-                    "true",
-                    "false"
-                  ]
+                  "x-ms-visibility": "advanced"
                 },
                 "CourseLayoutId": {
                   "type": "string",
@@ -869,7 +850,6 @@
                   "type": "string",
                   "description": "Course session enrollment type",
                   "x-ms-summary": "Course Session Enrollment Type",
-                  "x-ms-visibility": "",
                   "enum": [
                     "EnrollToSingle",
                     "EnrollToAll"
@@ -920,12 +900,7 @@
                       "description": "Is publishing enabled?",
                       "x-ms-summary": "Is Enabled",
                       "x-ms-visibility": "advanced",
-                      "enum": [
-                        "",
-                        "true",
-                        "false"
-                      ],
-                      "default": "true"
+                      "default": true
                     },
                     "StartDate": {
                       "type": "string",
@@ -950,12 +925,7 @@
                       "type": "boolean",
                       "description": "Is enabled",
                       "x-ms-summary": "Is Enabled",
-                      "x-ms-visibility": "advanced",
-                      "enum": [
-                        "",
-                        "true",
-                        "false"
-                      ]
+                      "x-ms-visibility": "advanced"
                     },
                     "FixedDate": {
                       "type": "string",
@@ -980,12 +950,7 @@
                       "type": "boolean",
                       "description": "Is enabled",
                       "x-ms-summary": "Is Enabled",
-                      "x-ms-visibility": "advanced",
-                      "enum": [
-                        "",
-                        "true",
-                        "false"
-                      ]
+                      "x-ms-visibility": "advanced"
                     },
                     "FixedDate": {
                       "type": "string",
@@ -1011,8 +976,7 @@
                 "CEU": {
                   "type": "integer",
                   "description": "Continuing education units (CEU)",
-                  "x-ms-summary": "Continuing Education Units",
-                  "x-ms-visibility": ""
+                  "x-ms-summary": "Continuing Education Units"
                 },
                 "ImageUrl": {
                   "type": "string",
@@ -1042,8 +1006,8 @@
     "/odata/v2/Courses({CourseId})": {
       "get": {
         "responses": {
-          "default": {
-            "description": "default",
+          "200": {
+            "description": "Ok",
             "schema": {
               "type": "object",
               "properties": {
@@ -1276,7 +1240,8 @@
                 "CourseSessions": {
                   "type": "array",
                   "items": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {}
                   },
                   "description": "Course sessions"
                 },
@@ -2465,9 +2430,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "operationId": "CompleteEnrollmentById",
@@ -2488,7 +2451,7 @@
     "/odata/v2/Enrollments({Id})/Retake": {
       "post": {
         "responses": {
-          "default": {
+          "201": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2535,7 +2498,7 @@
     "/odata/v2/CourseTags": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2586,7 +2549,7 @@
       },
       "post": {
         "responses": {
-          "default": {
+          "201": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2643,7 +2606,7 @@
     "/odata/v2/Courses/IncludeNotCreated": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2733,7 +2696,7 @@
     "/odata/v2/CourseCatalogs({CourseCatalogId})": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2779,7 +2742,8 @@
                         "description": "Long description"
                       },
                       "CEU": {
-                        "type": "string",
+                        "type": "integer",
+                        "format": "int32",
                         "description": "Continuing education units (CEU)",
                         "x-ms-summary": "Continuing Education Units"
                       },
@@ -2893,7 +2857,7 @@
     "/odata/v2/Enrollments({EnrollmentId})": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -2953,7 +2917,8 @@
                   "description": "Certificate id"
                 },
                 "CEU": {
-                  "type": "string",
+                  "type": "integer",
+                  "format": "int32",
                   "description": "Continuing education units (CEU)",
                   "x-ms-summary": "Continuing Education Units"
                 },
@@ -3007,9 +2972,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "summary": "Cancel enrollment",
@@ -3046,7 +3009,7 @@
     "/odata/v2/CourseCatalogs": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -3083,7 +3046,7 @@
     "/odata/v2/Users": {
       "get": {
         "responses": {
-          "default": {
+          "200": {
             "description": "default",
             "schema": {
               "type": "object",
@@ -3172,9 +3135,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": {}
           }
         },
         "summary": "Create course session",
@@ -3439,46 +3400,54 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object"
-            }
-          },
           "default": {
-            "description": "Operation Failed."
+            "description": "Response",
+            "schema": { }
           }
         },
-        "x-ms-visibility": "important"
+        "x-ms-visibility": "important",
+        "x-ms-api-annotation": {
+          "family": "HttpRequest",
+          "revision": 1,
+          "comment": "Contains constant path prefix"
+        }
       }
     },
-    "/{FileDownloadUrl}": {
-      "get": {
-        "responses": {
-          "default": {
-            "description": "default",
-            "schema": {
-              "type": "string",
-              "description": "The content of the file",
-              "title": "File Content",
-              "format": "binary",
-              "x-ms-visibility": ""
-            }
-          }
-        },
-        "summary": "Get File Content",
-        "description": "Get the content of the file e.g. certificate pdf",
-        "operationId": "FileDownload",
+    "/v2/httprequest": {
+      "post": {
+        "summary": "Send an HTTP request",
+        "description": "Construct a REST API request to invoke.",
+        "operationId": "HttpRequest_v2",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [ ],
         "parameters": [
           {
-            "name": "FileDownloadUrl",
-            "in": "path",
+            "name": "parameters",
+            "in": "body",
+            "description": "The parameters to this operation passed in the body.",
             "required": true,
-            "type": "string",
-            "description": "Relative path to the GET operator. Example: Certificates(027707f9-98d5-5ddf-b98f-0a99a220c1ef)/Content()",
-            "x-ms-summary": "Uri"
+            "schema": {
+              "$ref": "#/definitions/HttpRequestBodyParameters_v2"
+            },
+            "x-ms-summary": "Parameters"
           }
-        ]
+        ],
+        "responses": {
+          "default": {
+            "description": "Response",
+            "schema": { }
+          }
+        },
+        "x-ms-visibility": "important",
+        "x-ms-api-annotation": {
+          "status": "Preview",
+          "family": "HttpRequest",
+          "revision": 2,
+          "comment": "No constant path prefix"
+        }
       }
     },
     "/{FileUploadUrl}": {
@@ -3492,9 +3461,7 @@
         "responses": {
           "default": {
             "description": "default",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { }
           }
         },
         "summary": "Upload File",
@@ -3527,334 +3494,6 @@
           }
         ]
       }
-    },
-    "/webhooks/subscribe/UserCreated": {
-      "x-ms-notification-content": {
-        "schema": {
-          "type": "object",
-          "properties": {
-            "Id": {
-              "type": "string",
-              "description": "Id"
-            },
-            "Attempt": {
-              "type": "integer",
-              "format": "int32",
-              "description": "Attempt"
-            },
-            "Properties": {
-              "type": "object",
-              "properties": {},
-              "description": "Properties"
-            },
-            "Notifications": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "Action": {
-                    "type": "string",
-                    "description": "Action"
-                  },
-                  "UserId": {
-                    "type": "string",
-                    "description": "UserId"
-                  },
-                  "LoginName": {
-                    "type": "string",
-                    "description": "LoginName"
-                  },
-                  "Email": {
-                    "type": "string",
-                    "description": "Email"
-                  },
-                  "Title": {
-                    "type": "string",
-                    "description": "Title"
-                  },
-                  "DirectoryObjectId": {
-                    "type": "string",
-                    "description": "DirectoryObjectId"
-                  },
-                  "IsDeleted": {
-                    "type": "boolean",
-                    "description": "IsDeleted"
-                  },
-                  "UserFieldValues": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "FieldId": {
-                          "type": "string",
-                          "description": "FieldId"
-                        },
-                        "FieldTitle": {
-                          "type": "string",
-                          "description": "FieldTitle"
-                        },
-                        "Value": {
-                          "type": "string",
-                          "description": "Value"
-                        }
-                      }
-                    },
-                    "description": "UserFieldValues"
-                  },
-                  "TimeStamp": {
-                    "type": "string",
-                    "description": "TimeStamp"
-                  }
-                }
-              },
-              "description": "Notifications"
-            }
-          }
-        },
-        "description": "Response"
-      },
-      "post": {
-        "responses": {},
-        "summary": "When user record has been created in the LMS365",
-        "description": "When user record has been created in the LMS365",
-        "operationId": "UserCreated",
-        "x-ms-trigger": "single",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "WebHookUri": {
-                  "type": "string",
-                  "description": "Webhook Uri",
-                  "title": "Webhook Uri",
-                  "x-ms-visibility": "internal",
-                  "x-ms-notification-url": true
-                }
-              },
-              "required": [
-                "WebHookUri"
-              ]
-            }
-          }
-        ]
-      }
-    },
-    "/webhooks/subscribe/UserDeleted": {
-      "x-ms-notification-content": {
-        "description": "Response",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "Id": {
-              "type": "string",
-              "description": "Id"
-            },
-            "Attempt": {
-              "type": "integer",
-              "format": "int32",
-              "description": "Attempt"
-            },
-            "Properties": {
-              "type": "object",
-              "properties": {},
-              "description": "Properties"
-            },
-            "Notifications": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "Action": {
-                    "type": "string",
-                    "description": "Action"
-                  },
-                  "UserId": {
-                    "type": "string",
-                    "description": "UserId"
-                  },
-                  "LoginName": {
-                    "type": "string",
-                    "description": "LoginName"
-                  },
-                  "Email": {
-                    "type": "string",
-                    "description": "Email"
-                  },
-                  "Title": {
-                    "type": "string",
-                    "description": "Title"
-                  },
-                  "DirectoryObjectId": {
-                    "type": "string",
-                    "description": "DirectoryObjectId"
-                  },
-                  "IsDeleted": {
-                    "type": "boolean",
-                    "description": "IsDeleted"
-                  },
-                  "UserFieldValues": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "FieldId": {
-                          "type": "string",
-                          "description": "FieldId"
-                        },
-                        "FieldTitle": {
-                          "type": "string",
-                          "description": "FieldTitle"
-                        },
-                        "Value": {
-                          "type": "string",
-                          "description": "Value"
-                        }
-                      }
-                    },
-                    "description": "UserFieldValues"
-                  },
-                  "TimeStamp": {
-                    "type": "string",
-                    "description": "TimeStamp"
-                  }
-                }
-              },
-              "description": "Notifications"
-            }
-          }
-        }
-      },
-      "post": {
-        "responses": {},
-        "summary": "When user record has been deleted in the LMS365",
-        "description": "When user record has been deleted in the LMS365",
-        "operationId": "UserDeleted",
-        "x-ms-trigger": "single",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "WebHookUri": {
-                  "type": "string",
-                  "description": "WebHook Uri",
-                  "title": "WebHook Uri",
-                  "x-ms-visibility": "internal",
-                  "x-ms-notification-url": true
-                }
-              },
-              "required": [
-                "WebHookUri"
-              ]
-            }
-          }
-        ]
-      }
-    },
-    "/webhooks/subscribe/CourseDeleted": {
-      "x-ms-notification-content": {
-        "description": "Response",
-        "schema": {
-          "type": "object",
-          "properties": {
-            "Id": {
-              "type": "string",
-              "description": "Id"
-            },
-            "Attempt": {
-              "type": "integer",
-              "format": "int32",
-              "description": "Attempt"
-            },
-            "Properties": {
-              "type": "object",
-              "properties": {},
-              "description": "Properties"
-            },
-            "Notifications": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "Action": {
-                    "type": "string",
-                    "description": "Action"
-                  },
-                  "SiteId": {
-                    "type": "string",
-                    "description": "SiteId"
-                  },
-                  "WebId": {
-                    "type": "string",
-                    "description": "WebId"
-                  },
-                  "Id": {
-                    "type": "string",
-                    "description": "Id"
-                  },
-                  "Title": {
-                    "type": "string",
-                    "description": "Title"
-                  },
-                  "Url": {
-                    "type": "string",
-                    "description": "Url"
-                  },
-                  "CourseType": {
-                    "type": "string",
-                    "description": "CourseType"
-                  },
-                  "Published": {
-                    "type": "boolean",
-                    "description": "Published"
-                  },
-                  "TimeStamp": {
-                    "type": "string",
-                    "description": "TimeStamp"
-                  }
-                }
-              },
-              "description": "Notifications"
-            }
-          }
-        }
-      },
-      "post": {
-        "responses": {},
-        "summary": "When training has been deleted",
-        "operationId": "CourseDeleted",
-        "x-ms-trigger": "single",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "WebHookUri": {
-                  "type": "string",
-                  "description": "Webhook Uri",
-                  "title": "Webhook Uri",
-                  "x-ms-visibility": "internal",
-                  "x-ms-notification-url": true
-                }
-              },
-              "required": [
-                "WebHookUri"
-              ]
-            }
-          }
-        ],
-        "description": "When training has been deleted"
-      }
     }
   },
   "definitions": {
@@ -3881,6 +3520,48 @@
         },
         "uri": {
           "description": "Relative path after /odata/v2/ prefix. Example: Competencies",
+          "type": "string",
+          "x-ms-summary": "Uri"
+        },
+        "headers": {
+          "description": "Enter JSON object of request headers",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "x-ms-summary": "Headers",
+          "x-ms-editor": "dictionary"
+        },
+        "body": {
+          "description": "Enter request content in JSON",
+          "type": "string",
+          "x-ms-summary": "Body"
+        }
+      }
+    },
+    "HttpRequestBodyParameters_v2": {
+      "description": "Body parameters for HttpRequest operation.",
+      "required": [
+        "method",
+        "uri"
+      ],
+      "type": "object",
+      "properties": {
+        "method": {
+          "description": "Http Method",
+          "default": "GET",
+          "enum": [
+            "GET",
+            "PUT",
+            "POST",
+            "PATCH",
+            "DELETE"
+          ],
+          "type": "string",
+          "x-ms-summary": "Method"
+        },
+        "uri": {
+          "description": "Relative url. Example: odata/v2/Competencies",
           "type": "string",
           "x-ms-summary": "Uri"
         },
