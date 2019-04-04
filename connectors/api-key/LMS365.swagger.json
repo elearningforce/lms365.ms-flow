@@ -973,8 +973,9 @@
                   "description": "Show in catalog",
                   "x-ms-summary": "Show In Catalog"
                 },
-                "DecimalCEU": {
+                "CEU": {
                   "type": "number",
+                  "format":"double",
                   "description": "Continuing education units (CEU)",
                   "x-ms-summary": "Continuing Education Units"
                 },
