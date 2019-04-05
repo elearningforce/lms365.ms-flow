@@ -2513,7 +2513,7 @@
       },
       "post": {
         "responses": {},
-        "summary": "When a learner has been created",
+        "summary": "When a user has been created",
         "description": "This operation is triggered when a user entity has been enabled/created in LMS365",
         "operationId": "UserCreated",
         "x-ms-trigger": "single",
@@ -2628,7 +2628,7 @@
       },
       "post": {
         "responses": {},
-        "summary": "When a learner has been deleted",
+        "summary": "When a user has been deleted",
         "description": "This operation is triggered when a user entity has been disabled/deleted from LMS365",
         "operationId": "UserDeleted",
         "x-ms-trigger": "single",
