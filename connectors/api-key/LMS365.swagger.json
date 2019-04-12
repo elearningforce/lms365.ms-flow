@@ -2512,7 +2512,11 @@
         "description": "Response"
       },
       "post": {
-        "responses": {},
+        "responses": {
+            "default": {
+            "description": "Ok"
+          }
+        },
         "summary": "When a user has been created",
         "description": "This operation is triggered when a user entity has been enabled/created in LMS365",
         "operationId": "UserCreated",
@@ -2627,7 +2631,11 @@
         }
       },
       "post": {
-        "responses": {},
+        "responses": {
+          "default": {
+            "description": "Ok"
+          }          
+        },
         "summary": "When a user has been deleted",
         "description": "This operation is triggered when a user entity has been disabled/deleted from LMS365",
         "operationId": "UserDeleted",
@@ -2725,7 +2733,11 @@
         }
       },
       "post": {
-        "responses": {},
+        "responses": {
+          "default": {
+            "description": "Ok"
+          }
+        },
         "summary": "When training has been deleted from a catalog",
         "description": "This operation is triggered when a course or training plan has been deleted from a catalog",
         "operationId": "CourseDeleted",
