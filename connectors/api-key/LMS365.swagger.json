@@ -600,6 +600,12 @@
                   "description": "Course long description",
                   "x-ms-summary": "Course Long Description"
                 },
+                "CEU": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Continuing education units (CEU)",
+                  "x-ms-summary": "Continuing Education Units"
+                },
                 "DecimalCEU": {
                   "type": "number",
                   "format": "double",
@@ -975,7 +981,6 @@
                 },
                 "CEU": {
                   "type": "number",
-                  "format":"double",
                   "description": "Continuing education units (CEU)",
                   "x-ms-summary": "Continuing Education Units"
                 },
@@ -1037,6 +1042,12 @@
                 "LongDescription": {
                   "type": "string",
                   "description": "Long description"
+                },
+                "CEU": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Continuing education units (CEU)",
+                  "x-ms-summary": "Continuing Education Units"
                 },
                 "DecimalCEU": {
                   "type": "number",
@@ -3082,6 +3093,12 @@
                         "type": "string",
                         "description": "Long description"
                       },
+                      "CEU": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Continuing education units (CEU)",
+                        "x-ms-summary": "Continuing Education Units"
+                      },
                       "DecimalCEU": {
                         "type": "number",
                         "format": "double",
@@ -3256,6 +3273,12 @@
                 "CertificateId": {
                   "type": "string",
                   "description": "Certificate id"
+                },
+                "CEU": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "Continuing education units (CEU)",
+                  "x-ms-summary": "Continuing Education Units"
                 },
                 "DecimalCEU": {
                   "type": "number",
